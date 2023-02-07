@@ -1,0 +1,7 @@
+RegisterCommand("painkiller", function(source, args, rawCommand)
+	TriggerClientEvent("esx:showNotification", source, "Je nam een pijnstiller, en voelt je langzamerhand steeds beter.")
+    TriggerClientEvent("esx_animations:playEmote", source, "eat")
+	SetTimeout(30000, function()
+		TriggerClientEvent("esx:showNotification", source, "Je bent compleet herstelt!")
+	end)
+end, false)
