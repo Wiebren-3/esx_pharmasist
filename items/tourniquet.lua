@@ -1,6 +1,7 @@
 -- ESX_MEDICINEITEM --
 RegisterNetEvent('esx:useItem')
 AddEventHandler('esx:useItem', function(itemName)
+TriggerClientEvent("esx_animations:playEmote", source, "mechanic3")
     if itemName == 'tourniquet' then
         local xPlayer = ESX.GetPlayerFromId(source)
         local playerPed = xPlayer.playerPed
