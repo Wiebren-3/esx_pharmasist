@@ -26,7 +26,7 @@ Config.OxInventory                = ESX.GetConfig().OxInventory
 
 Config.PharmasistStations = {
 
-	LSPD = {
+	Store = {
 
 		Blip = {
 			Coords  = vector3(425.1, -979.5, 30.7),
@@ -66,13 +66,13 @@ Config.PharmasistStations = {
 			}
 		},
 
-		Helicopters = {
+		--Helicopters = {
 			{
-				Spawner = vector3(461.1, -981.5, 43.6),
-				InsideShop = vector3(477.0, -1106.4, 43.0),
-				SpawnPoints = {
-					{coords = vector3(449.5, -981.2, 43.6), heading = 92.6, radius = 10.0}
-				}
+			--	Spawner = vector3(461.1, -981.5, 43.6),
+			--	InsideShop = vector3(477.0, -1106.4, 43.0),
+			--	SpawnPoints = {
+			--		{coords = vector3(449.5, -981.2, 43.6), heading = 92.6, radius = 10.0}
+			--	}
 			}
 		},
 
@@ -84,49 +84,49 @@ Config.PharmasistStations = {
 
 }
 
-Config.AuthorizedWeapons = {
-	recruit = {
-		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_STUNGUN', price = 1500},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 80}
-	},
-
-	supplier = {
-		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
-		{weapon = 'WEAPON_ADVANCEDRIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_STUNGUN', price = 500},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0}
-	},
-
-	store_employe  = {
-		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
-		{weapon = 'WEAPON_ADVANCEDRIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
-		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 70000},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_STUNGUN', price = 500},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0}
-	},
-
-	lab_employe = {
-		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
-		{weapon = 'WEAPON_ADVANCEDRIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
-		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 70000},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_STUNGUN', price = 500},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0}
-	},
-
-	boss = {
-		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
-		{weapon = 'WEAPON_ADVANCEDRIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
-		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 70000},
-		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
-		{weapon = 'WEAPON_STUNGUN', price = 500},
-		{weapon = 'WEAPON_FLASHLIGHT', price = 0}
-	}
-}
+--Config.AuthorizedWeapons = {
+--	recruit = {
+--		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
+--		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
+--		{weapon = 'WEAPON_STUNGUN', price = 1500},
+--		{weapon = 'WEAPON_FLASHLIGHT', price = 80}
+--	},
+--
+--	supplier = {
+--		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
+--		{weapon = 'WEAPON_ADVANCEDRIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
+--		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
+--		{weapon = 'WEAPON_STUNGUN', price = 500},
+--		{weapon = 'WEAPON_FLASHLIGHT', price = 0}
+--	},
+--
+--	store_employe  = {
+--		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
+--		{weapon = 'WEAPON_ADVANCEDRIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
+--		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 70000},
+--		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
+--		{weapon = 'WEAPON_STUNGUN', price = 500},
+--		{weapon = 'WEAPON_FLASHLIGHT', price = 0}
+--	},
+--
+--	lab_employe = {
+--		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
+--		{weapon = 'WEAPON_ADVANCEDRIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
+--		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 70000},
+--		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
+--		{weapon = 'WEAPON_STUNGUN', price = 500},
+--		{weapon = 'WEAPON_FLASHLIGHT', price = 0}
+--	},
+--
+--	boss = {
+--		{weapon = 'WEAPON_APPISTOL', components = {0, 0, 1000, 4000, nil}, price = 10000},
+--		{weapon = 'WEAPON_ADVANCEDRIFLE', components = {0, 6000, 1000, 4000, 8000, nil}, price = 50000},
+--		{weapon = 'WEAPON_PUMPSHOTGUN', components = {2000, 6000, nil}, price = 70000},
+--		{weapon = 'WEAPON_NIGHTSTICK', price = 0},
+--		{weapon = 'WEAPON_STUNGUN', price = 500},
+--		{weapon = 'WEAPON_FLASHLIGHT', price = 0}
+--	}
+--}
 
 --Config.AuthorizedVehicles = {
 	car = {
