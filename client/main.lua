@@ -23,7 +23,7 @@ function cleanPlayer(playerPed)
 	ResetPedMovementClipset(playerPed, 0)
 end
 
-function setUniform(uniform, playerPed)
+--function setUniform(uniform, playerPed)
 	TriggerEvent('skinchanger:getSkin', function(skin)
 		local uniformObject
 
@@ -45,7 +45,7 @@ function setUniform(uniform, playerPed)
 	end)
 end
 
-function OpenCloakroomMenu()
+--function OpenCloakroomMenu()
 	local playerPed = PlayerPedId()
 	local grade = ESX.PlayerData.job.grade_name
 
@@ -186,7 +186,7 @@ function OpenCloakroomMenu()
 		elseif data.current.value == 'freemode_ped' then
 			local modelHash
 
-			ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
+		--	ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
 				if skin.sex == 0 then
 					modelHash = joaat(data.current.maleModel)
 				else
@@ -215,15 +215,15 @@ function OpenArmoryMenu(station)
 		exports.ox_inventory:openInventory('stash', {id = 'society_pharmasist', owner = station})
 		return ESX.CloseContext()
 	else
-		elements = {
-			{unselectable = true, icon = "fas fa-gun", title = TranslateCap('armory')},
-			{icon = "fas fa-gun", title = TranslateCap('buy_weapons'), value = 'buy_weapons'}
+		--elements = {
+		--	{unselectable = true, icon = "Koop een item", title = TranslateCap('armory')},
+		--	{icon = "Koop een item", title = TranslateCap('buy_items'), value = 'buy_items'}
 			
 		}
 
 		if Config.EnableArmoryManagement then
-			table.insert(elements, {icon = "fas fa-gun", title = TranslateCap('get_weapon'),     value = 'get_weapon'})
-			table.insert(elements, {icon = "fas fa-gun", title = TranslateCap('put_weapon'),     value = 'put_weapon'})
+		--	table.insert(elements, {icon = "Koop een item", title = TranslateCap('get_weapon'),     value = 'get_weapon'})
+		--	table.insert(elements, {icon = "Koop een item", title = TranslateCap('put_weapon'),     value = 'put_weapon'})
 			table.insert(elements, {icon = "fas fa-box", title = TranslateCap('remove_object'),  value = 'get_stock'})
 			table.insert(elements, {icon = "fas fa-box", title = TranslateCap('deposit_object'), value = 'put_stock'})
 		end
@@ -231,12 +231,12 @@ function OpenArmoryMenu(station)
 
 	ESX.OpenContext("right", elements, function(menu,element)
 		local data = {current = element}
-		if data.current.value == 'get_weapon' then
-			OpenGetWeaponMenu()
-		elseif data.current.value == 'put_weapon' then
-			OpenPutWeaponMenu()
-		elseif data.current.value == 'buy_weapons' then
-			OpenBuyWeaponsMenu()
+	--	if data.current.value == 'get_weapon' then
+	--		OpenGetWeaponMenu()
+	--	elseif data.current.value == 'put_weapon' then
+	--		OpenPutWeaponMenu()
+	--	elseif data.current.value == 'buy_weapons' then
+	--		OpenBuyWeaponsMenu()
 		elseif data.current.value == 'put_stock' then
 			OpenPutStocksMenu()
 		elseif data.current.value == 'get_stock' then
@@ -253,7 +253,7 @@ function OpenpharmasistActionsMenu()
 	local elements = {
 		{unselectable = true, icon = "fas fa-pharmasist", title = "pharmasist"},
 		{icon = "fas fa-user", title = TranslateCap('citizen_interaction'), value = 'citizen_interaction'},
-		{icon = "fas fa-car", title = TranslateCap('vehicle_interaction'), value = 'vehicle_interaction'},
+	--	{icon = "fas fa-car", title = TranslateCap('vehicle_interaction'), value = 'vehicle_interaction'},
 		{icon = "fas fa-object", title = TranslateCap('object_spawner'), value = 'object_spawner'}
 	}
 
@@ -263,21 +263,21 @@ function OpenpharmasistActionsMenu()
 		if data.current.value == 'citizen_interaction' then
 			local elements2 = {
 				{unselectable = true, icon = "fas fa-user", title = element.title},
-				{icon = "fas fa-idkyet", title = TranslateCap('id_card'), value = 'identity_card'},
+			--	{icon = "fas fa-idkyet", title = TranslateCap('id_card'), value = 'identity_card'},
 				{icon = "fas fa-idkyet", title = TranslateCap('search'), value = 'search'},
-				{icon = "fas fa-idkyet", title = TranslateCap('handcuff'), value = 'handcuff'},
-				{icon = "fas fa-idkyet", title = TranslateCap('drag'), value = 'drag'},
-				{icon = "fas fa-idkyet", title = TranslateCap('put_in_vehicle'), value = 'put_in_vehicle'},
-				{icon = "fas fa-idkyet", title = TranslateCap('out_the_vehicle'), value = 'out_the_vehicle'},
+			--	{icon = "fas fa-idkyet", title = TranslateCap('handcuff'), value = 'handcuff'},
+			--	{icon = "fas fa-idkyet", title = TranslateCap('drag'), value = 'drag'},
+			--	{icon = "fas fa-idkyet", title = TranslateCap('put_in_vehicle'), value = 'put_in_vehicle'},
+			--	{icon = "fas fa-idkyet", title = TranslateCap('out_the_vehicle'), value = 'out_the_vehicle'},
 				{icon = "fas fa-idkyet", title = TranslateCap('fine'), value = 'fine'},
-				{icon = "fas fa-idkyet", title = TranslateCap('unpaid_bills'), value = 'unpaid_bills'}
+			--	{icon = "fas fa-idkyet", title = TranslateCap('unpaid_bills'), value = 'unpaid_bills'}
 			}
 
-			if Config.EnableLicenses then
-				elements2[#elements2+1] = {
-					icon = "fas fa-scroll",
-					title = TranslateCap('license_check'),
-					value = 'license'
+			--if Config.EnableLicenses then
+			--	elements2[#elements2+1] = {
+			--		icon = "fas fa-scroll",
+			--		title = TranslateCap('license_check'),
+			--		value = 'license'
 				}
 			end
 
@@ -287,24 +287,24 @@ function OpenpharmasistActionsMenu()
 					local data2 = {current = element2}
 					local action = data2.current.value
 
-					if action == 'identity_card' then
-						OpenIdentityCardMenu(closestPlayer)
+					--if action == 'identity_card' then
+					--	OpenIdentityCardMenu(closestPlayer)
 					elseif action == 'search' then
 						OpenBodySearchMenu(closestPlayer)
-					elseif action == 'handcuff' then
-						TriggerServerEvent('esx_pharmasistjob:handcuff', GetPlayerServerId(closestPlayer))
-					elseif action == 'drag' then
-						TriggerServerEvent('esx_pharmasistjob:drag', GetPlayerServerId(closestPlayer))
-					elseif action == 'put_in_vehicle' then
-						TriggerServerEvent('esx_pharmasistjob:putInVehicle', GetPlayerServerId(closestPlayer))
-					elseif action == 'out_the_vehicle' then
-						TriggerServerEvent('esx_pharmasistjob:OutVehicle', GetPlayerServerId(closestPlayer))
+				--	elseif action == 'handcuff' then
+				--		TriggerServerEvent('esx_pharmasistjob:handcuff', GetPlayerServerId(closestPlayer))
+				--	elseif action == 'drag' then
+				--		TriggerServerEvent('esx_pharmasistjob:drag', GetPlayerServerId(closestPlayer))
+				--	elseif action == 'put_in_vehicle' then
+				--		TriggerServerEvent('esx_pharmasistjob:putInVehicle', GetPlayerServerId(closestPlayer))
+				--	elseif action == 'out_the_vehicle' then
+				--		TriggerServerEvent('esx_pharmasistjob:OutVehicle', GetPlayerServerId(closestPlayer))
 					elseif action == 'fine' then
 						OpenFineMenu(closestPlayer)
-					elseif action == 'license' then
-						ShowPlayerLicense(closestPlayer)
-					elseif action == 'unpaid_bills' then
-						OpenUnpaidBillsMenu(closestPlayer)
+				--	elseif action == 'license' then
+					--	ShowPlayerLicense(closestPlayer)
+				--	elseif action == 'unpaid_bills' then
+					--	OpenUnpaidBillsMenu(closestPlayer)
 					end
 				else
 					ESX.ShowNotification(TranslateCap('no_players_nearby'))
@@ -312,18 +312,18 @@ function OpenpharmasistActionsMenu()
 			end, function(menu)
 				OpenpharmasistActionsMenu()
 			end)
-		elseif data.current.value == 'vehicle_interaction' then
-			local elements3  = {
-				{unselectable = true, icon = "fas fa-car", title = element.title}
-			}
-			local playerPed = PlayerPedId()
-			local vehicle = ESX.Game.GetVehicleInDirection()
-
-			if DoesEntityExist(vehicle) then
-				elements3[#elements3+1] = {icon = "fas fa-car", title = TranslateCap('vehicle_info'), value = 'vehicle_infos'}
-				elements3[#elements3+1] = {icon = "fas fa-car", title = TranslateCap('pick_lock'), value = 'hijack_vehicle'}
-				elements3[#elements3+1] = {icon = "fas fa-car", title = TranslateCap('impound'), value = 'impound'}
-			end
+		--elseif data.current.value == 'vehicle_interaction' then
+		--	local elements3  = {
+		--		{unselectable = true, icon = "fas fa-car", title = element.title}
+		--	}
+		--	local playerPed = PlayerPedId()
+		--	local vehicle = ESX.Game.GetVehicleInDirection()
+			
+		--	if DoesEntityExist(vehicle) then
+		--		elements3[#elements3+1] = {icon = "fas fa-car", title = TranslateCap('vehicle_info'), value = 'vehicle_infos'}
+		--		elements3[#elements3+1] = {icon = "fas fa-car", title = TranslateCap('pick_lock'), value = 'hijack_vehicle'}
+		--		elements3[#elements3+1] = {icon = "fas fa-car", title = TranslateCap('impound'), value = 'impound'}
+		--	end
 
 			elements3[#elements3+1] = {
 				icon = "fas fa-scroll",
@@ -331,72 +331,69 @@ function OpenpharmasistActionsMenu()
 				value = 'search_database'
 			}
 			
-			ESX.OpenContext("right", elements3, function(menu3,element3)
-				local data2 = {current = element3}
-				local coords  = GetEntityCoords(playerPed)
-				vehicle = ESX.Game.GetVehicleInDirection()
-				action  = data2.current.value
-
-				if action == 'search_database' then
-					LookupVehicle(element3)
-				elseif DoesEntityExist(vehicle) then
-					if action == 'vehicle_infos' then
-						local vehicleData = ESX.Game.GetVehicleProperties(vehicle)
-						OpenVehicleInfosMenu(vehicleData)
-					elseif action == 'hijack_vehicle' then
-						if IsAnyVehicleNearPoint(coords.x, coords.y, coords.z, 3.0) then
-							TaskStartScenarioInPlace(playerPed, 'WORLD_HUMAN_WELDING', 0, true)
-							Wait(20000)
-							ClearPedTasksImmediately(playerPed)
-
-							SetVehicleDoorsLocked(vehicle, 1)
-							SetVehicleDoorsLockedForAllPlayers(vehicle, false)
-							ESX.ShowNotification(TranslateCap('vehicle_unlocked'))
-						end
-					elseif action == 'impound' then
-						if currentTask.busy then
-							return
-						end
-
-						ESX.ShowHelpNotification(TranslateCap('impound_prompt'))
-						TaskStartScenarioInPlace(playerPed, 'CODE_HUMAN_MEDIC_TEND_TO_DEAD', 0, true)
-
-						currentTask.busy = true
-						currentTask.task = ESX.SetTimeout(10000, function()
-							ClearPedTasks(playerPed)
-							ImpoundVehicle(vehicle)
-							Wait(100)
-						end)
-
-						CreateThread(function()
-							while currentTask.busy do
-								Wait(1000)
-
-								vehicle = GetClosestVehicle(coords.x, coords.y, coords.z, 3.0, 0, 71)
-								if not DoesEntityExist(vehicle) and currentTask.busy then
-									ESX.ShowNotification(TranslateCap('impound_canceled_moved'))
-									ESX.ClearTimeout(currentTask.task)
-									ClearPedTasks(playerPed)
-									currentTask.busy = false
-									break
-								end
-							end
-						end)
-					end
-				else
-					ESX.ShowNotification(TranslateCap('no_vehicles_nearby'))
-				end
-			end, function(menu)
+		--	ESX.OpenContext("right", elements3, function(menu3,element3)
+		--		local data2 = {current = element3}
+		--		local coords  = GetEntityCoords(playerPed)
+		--		vehicle = ESX.Game.GetVehicleInDirection()
+		--		action  = data2.current.value
+--
+--				if action == 'search_database' then
+--					LookupVehicle(element3)
+--				elseif DoesEntityExist(vehicle) then
+--					if action == 'vehicle_infos' then
+--						local vehicleData = ESX.Game.GetVehicleProperties(vehicle)
+--						OpenVehicleInfosMenu(vehicleData)
+--					elseif action == 'hijack_vehicle' then
+--						if IsAnyVehicleNearPoint(coords.x, coords.y, coords.z, 3.0) then
+--							TaskStartScenarioInPlace(playerPed, 'WORLD_HUMAN_WELDING', 0, true)
+--							Wait(20000)
+--							ClearPedTasksImmediately(playerPed)
+--
+--							SetVehicleDoorsLocked(vehicle, 1)
+--							SetVehicleDoorsLockedForAllPlayers(vehicle, false)
+--							ESX.ShowNotification(TranslateCap('vehicle_unlocked'))
+--						end
+--					elseif action == 'impound' then
+--						if currentTask.busy then
+--							return
+--						end
+--
+--						ESX.ShowHelpNotification(TranslateCap('impound_prompt'))
+--						TaskStartScenarioInPlace(playerPed, 'CODE_HUMAN_MEDIC_TEND_TO_DEAD', 0, true)
+--
+--						currentTask.busy = true
+--						currentTask.task = ESX.SetTimeout(10000, function()
+--							ClearPedTasks(playerPed)
+--							ImpoundVehicle(vehicle)
+--							Wait(100)
+--						end)
+--
+--						CreateThread(function()
+--							while currentTask.busy do
+--								Wait(1000)
+--
+--								vehicle = GetClosestVehicle(coords.x, coords.y, coords.z, 3.0, 0, 71)
+--								if not DoesEntityExist(vehicle) and currentTask.busy then
+--									ESX.ShowNotification(TranslateCap('impound_canceled_moved'))
+--									ESX.ClearTimeout(currentTask.task)
+--									ClearPedTasks(playerPed)
+--									currentTask.busy = false
+--									break
+--								end
+--							end
+--						end)
+--					end
+--				else
+--					ESX.ShowNotification(TranslateCap('no_vehicles_nearby'))
+--				end
+--			end, function(menu)
 				OpenpharmasistActionsMenu()
 			end)
 		elseif data.current.value == "object_spawner" then
 			local elements4 = {
 				{unselectable = true, icon = "fas fa-object", title = element.title},
-				{icon = "fas fa-cone", title = TranslateCap('cone'), model = 'prop_roadcone02a'},
 				{icon = "fas fa-cone", title = TranslateCap('barrier'), model = 'prop_barrier_work05'},
-				{icon = "fas fa-cone", title = TranslateCap('spikestrips'), model = 'p_ld_stinger_s'},
 				{icon = "fas fa-cone", title = TranslateCap('box'), model = 'prop_boxpile_07d'},
-				{icon = "fas fa-cone", title = TranslateCap('cash'), model = 'hei_prop_cash_crate_half_full'}
 			}
 
 			ESX.OpenContext("right", elements4, function(menu4,element4)
@@ -416,36 +413,36 @@ function OpenpharmasistActionsMenu()
 	end)
 end
 
-function OpenIdentityCardMenu(player)
-	ESX.TriggerServerCallback('esx_pharmasistjob:getOtherPlayerData', function(data)
-		local elements = {
-			{icon = "fas fa-user", title = TranslateCap('name', data.name)},
-			{icon = "fas fa-user", title = TranslateCap('job', ('%s - %s'):format(data.job, data.grade))}
-		}
-
-		if Config.EnableESXIdentity then
-			elements[#elements+1] = {icon = "fas fa-user", title = TranslateCap('sex', TranslateCap(data.sex))}
-			elements[#elements+1] = {icon = "fas fa-user", title = TranslateCap('sex', TranslateCap(data.sex))}
-			elements[#elements+1] = {icon = "fas fa-user", title = TranslateCap('height', data.height)}
-		end
-
-		if Config.EnableESXOptionalneeds and data.drunk then
-			elements[#elements+1] = {title = TranslateCap('bac', data.drunk)}
-		end
-
-		if data.licenses then
-			elements[#elements+1] = {title = TranslateCap('license_label')}
-
-			for i=1, #data.licenses, 1 do
-				elements[#elements+1] = {title = data.licenses[i].label}
-			end
-		end
-
-		ESX.OpenContext("right", elements, nil, function(menu)
-			OpenpharmasistActionsMenu()	
-		end)
-	end, GetPlayerServerId(player))
-end
+--function OpenIdentityCardMenu(player)
+--	ESX.TriggerServerCallback('esx_pharmasistjob:getOtherPlayerData', function(data)
+--		local elements = {
+--			{icon = "fas fa-user", title = TranslateCap('name', data.name)},
+--			{icon = "fas fa-user", title = TranslateCap('job', ('%s - %s'):format(data.job, data.grade))}
+--		}
+--
+--		if Config.EnableESXIdentity then
+--			elements[#elements+1] = {icon = "fas fa-user", title = TranslateCap('sex', TranslateCap(data.sex))}
+--			elements[#elements+1] = {icon = "fas fa-user", title = TranslateCap('sex', TranslateCap(data.sex))}
+--			elements[#elements+1] = {icon = "fas fa-user", title = TranslateCap('height', data.height)}
+--		end
+--
+--		if Config.EnableESXOptionalneeds and data.drunk then
+--			elements[#elements+1] = {title = TranslateCap('bac', data.drunk)}
+--		end
+--
+--		if data.licenses then
+--			elements[#elements+1] = {title = TranslateCap('license_label')}
+--
+--			for i=1, #data.licenses, 1 do
+--				elements[#elements+1] = {title = data.licenses[i].label}
+--			end
+--		end
+--
+--		ESX.OpenContext("right", elements, nil, function(menu)
+--			OpenpharmasistActionsMenu()	
+--		end)
+--	end, GetPlayerServerId(player))
+--end
 
 function OpenBodySearchMenu(player)
 	if Config.OxInventory then
@@ -682,144 +679,144 @@ function OpenGetWeaponMenu()
 	end)
 end
 
-function OpenPutWeaponMenu()
-	local elements   = {
-		{unselectable = true, icon = "fas fa-gun", title = TranslateCap('put_weapon_menu')}
-	}
-	local playerPed  = PlayerPedId()
-	local weaponList = ESX.GetWeaponList()
+--function OpenPutWeaponMenu()
+--	local elements   = {
+--		{unselectable = true, icon = "fas fa-gun", title = TranslateCap('put_weapon_menu')}
+--	}
+--	local playerPed  = PlayerPedId()
+--	local weaponList = ESX.GetWeaponList()
+--
+--	for i=1, #weaponList, 1 do
+--		local weaponHash = joaat(weaponList[i].name)
+--
+--		if HasPedGotWeapon(playerPed, weaponHash, false) and weaponList[i].name ~= 'WEAPON_UNARMED' then
+--			elements[#elements+1] = {
+--				icon = "fas fa-gun",
+--				title = weaponList[i].label,
+--				value = weaponList[i].name
+--			}
+--		end
+--	end
 
-	for i=1, #weaponList, 1 do
-		local weaponHash = joaat(weaponList[i].name)
+	--ESX.OpenContext("right", elements, function(menu,element)
+	--	local data = {current = element}
+	--	ESX.TriggerServerCallback('esx_pharmasistjob:addArmoryWeapon', function()
+	--		ESX.CloseContext()
+	--		OpenPutWeaponMenu()
+	--	end, data.current.value, true)
+	--end)
+--end
 
-		if HasPedGotWeapon(playerPed, weaponHash, false) and weaponList[i].name ~= 'WEAPON_UNARMED' then
-			elements[#elements+1] = {
-				icon = "fas fa-gun",
-				title = weaponList[i].label,
-				value = weaponList[i].name
-			}
-		end
-	end
+--function OpenBuyWeaponsMenu()
+--	local elements = {
+--		{unselectable = true, icon = "fas fa-gun", title = TranslateCap('armory_weapontitle')}
+--	}
+--	local playerPed = PlayerPedId()
+--
+--	for k,v in ipairs(Config.AuthorizedWeapons[ESX.PlayerData.job.grade_name]) do
+--		local weaponNum, weapon = ESX.GetWeapon(v.weapon)
+--		local components, label = {}
+--		local hasWeapon = HasPedGotWeapon(playerPed, joaat(v.weapon), false)
+--
+--		if v.components then
+--			for i=1, #v.components do
+----				if v.components[i] then
+--					local component = weapon.components[i]
+--					local hasComponent = HasPedGotWeaponComponent(playerPed, joaat(v.weapon), component.hash)
+--
+--					if hasComponent then
+--						label = ('%s: <span style="color:green;">%s</span>'):format(component.label, TranslateCap('armory_owned'))
+--					else
+--						if v.components[i] > 0 then
+--							label = ('%s: <span style="color:green;">%s</span>'):format(component.label, TranslateCap('armory_item', ESX.Math.GroupDigits(v.components[i])))
+--						else
+--							label = ('%s: <span style="color:green;">%s</span>'):format(component.label, TranslateCap('armory_free'))
+--						end
+--					end
+--
+--					components[#components+1] = {
+--						icon = "fas fa-gun",
+--						title = label,
+--						componentLabel = component.label,
+--						hash = component.hash,
+--						name = component.name,
+--						price = v.components[i],
+--						hasComponent = hasComponent,
+--						componentNum = i
+--					}
+--				end
+--			end
+--		end
+--
+--		if hasWeapon and v.components then
+--			label = ('%s: <span style="color:green;">></span>'):format(weapon.label)
+--		elseif hasWeapon and not v.components then
+--			label = ('%s: <span style="color:green;">%s</span>'):format(weapon.label, TranslateCap('armory_owned'))
+--		else
+--			if v.price > 0 then
+--				label = ('%s: <span style="color:green;">%s</span>'):format(weapon.label, TranslateCap('armory_item', ESX.Math.GroupDigits(v.price)))
+--			else
+--				label = ('%s: <span style="color:green;">%s</span>'):format(weapon.label, TranslateCap('armory_free'))
+--			end
+--		end
+--
+--		elements[#elements+1] = {
+--			icon = "fas fa-gun",
+--			title = label,
+--			weaponLabel = weapon.label,
+--			name = weapon.name,
+--			components = components,
+--			price = v.price,
+--			hasWeapon = hasWeapon
+--		}
+--	end
 
-	ESX.OpenContext("right", elements, function(menu,element)
-		local data = {current = element}
-		ESX.TriggerServerCallback('esx_pharmasistjob:addArmoryWeapon', function()
-			ESX.CloseContext()
-			OpenPutWeaponMenu()
-		end, data.current.value, true)
-	end)
-end
+--	ESX.OpenContext("right", elements, function(menu,element)
+--		local data = {current = element}
+--		if data.current.hasWeapon then
+--			if #data.current.components > 0 then
+--				OpenWeaponComponentShop(data.current.components, data.current.name, menu)
+--			end
+--		else
+--			ESX.TriggerServerCallback('esx_pharmasistjob:buyWeapon', function(bought)
+--				if bought then
+--					if data.current.price > 0 then
+--						ESX.ShowNotification(TranslateCap('armory_bought', data.current.weaponLabel, ESX.Math.GroupDigits(data.current.price)))
+--					end
+--
+--					menu.close()
+--					OpenBuyWeaponsMenu()
+--				else
+--					ESX.ShowNotification(TranslateCap('armory_money'))
+--				end
+--			end, data.current.name, 1)
+--		end
+--	end)
+--end
 
-function OpenBuyWeaponsMenu()
-	local elements = {
-		{unselectable = true, icon = "fas fa-gun", title = TranslateCap('armory_weapontitle')}
-	}
-	local playerPed = PlayerPedId()
+--function OpenWeaponComponentShop(components, weaponName, parentShop)
 
-	for k,v in ipairs(Config.AuthorizedWeapons[ESX.PlayerData.job.grade_name]) do
-		local weaponNum, weapon = ESX.GetWeapon(v.weapon)
-		local components, label = {}
-		local hasWeapon = HasPedGotWeapon(playerPed, joaat(v.weapon), false)
-
-		if v.components then
-			for i=1, #v.components do
-				if v.components[i] then
-					local component = weapon.components[i]
-					local hasComponent = HasPedGotWeaponComponent(playerPed, joaat(v.weapon), component.hash)
-
-					if hasComponent then
-						label = ('%s: <span style="color:green;">%s</span>'):format(component.label, TranslateCap('armory_owned'))
-					else
-						if v.components[i] > 0 then
-							label = ('%s: <span style="color:green;">%s</span>'):format(component.label, TranslateCap('armory_item', ESX.Math.GroupDigits(v.components[i])))
-						else
-							label = ('%s: <span style="color:green;">%s</span>'):format(component.label, TranslateCap('armory_free'))
-						end
-					end
-
-					components[#components+1] = {
-						icon = "fas fa-gun",
-						title = label,
-						componentLabel = component.label,
-						hash = component.hash,
-						name = component.name,
-						price = v.components[i],
-						hasComponent = hasComponent,
-						componentNum = i
-					}
-				end
-			end
-		end
-
-		if hasWeapon and v.components then
-			label = ('%s: <span style="color:green;">></span>'):format(weapon.label)
-		elseif hasWeapon and not v.components then
-			label = ('%s: <span style="color:green;">%s</span>'):format(weapon.label, TranslateCap('armory_owned'))
-		else
-			if v.price > 0 then
-				label = ('%s: <span style="color:green;">%s</span>'):format(weapon.label, TranslateCap('armory_item', ESX.Math.GroupDigits(v.price)))
-			else
-				label = ('%s: <span style="color:green;">%s</span>'):format(weapon.label, TranslateCap('armory_free'))
-			end
-		end
-
-		elements[#elements+1] = {
-			icon = "fas fa-gun",
-			title = label,
-			weaponLabel = weapon.label,
-			name = weapon.name,
-			components = components,
-			price = v.price,
-			hasWeapon = hasWeapon
-		}
-	end
-
-	ESX.OpenContext("right", elements, function(menu,element)
-		local data = {current = element}
-		if data.current.hasWeapon then
-			if #data.current.components > 0 then
-				OpenWeaponComponentShop(data.current.components, data.current.name, menu)
-			end
-		else
-			ESX.TriggerServerCallback('esx_pharmasistjob:buyWeapon', function(bought)
-				if bought then
-					if data.current.price > 0 then
-						ESX.ShowNotification(TranslateCap('armory_bought', data.current.weaponLabel, ESX.Math.GroupDigits(data.current.price)))
-					end
-
-					menu.close()
-					OpenBuyWeaponsMenu()
-				else
-					ESX.ShowNotification(TranslateCap('armory_money'))
-				end
-			end, data.current.name, 1)
-		end
-	end)
-end
-
-function OpenWeaponComponentShop(components, weaponName, parentShop)
-
-	ESX.OpenContext("right", components, function(menu,element)
-		local data = {current = element}
-		if data.current.hasComponent then
-			ESX.ShowNotification(TranslateCap('armory_hascomponent'))
-		else
-			ESX.TriggerServerCallback('esx_pharmasistjob:buyWeapon', function(bought)
-				if bought then
-					if data.current.price > 0 then
-						ESX.ShowNotification(TranslateCap('armory_bought', data.current.componentLabel, ESX.Math.GroupDigits(data.current.price)))
-					end
-
-					menu.close()
-					parentShop.close()
-					OpenBuyWeaponsMenu()
-				else
-					ESX.ShowNotification(TranslateCap('armory_money'))
-				end
-			end, weaponName, 2, data.current.componentNum)
-		end
-	end)
-end
+--	ESX.OpenContext("right", components, function(menu,element)
+--		local data = {current = element}
+--		if data.current.hasComponent then
+--			ESX.ShowNotification(TranslateCap('armory_hascomponent'))
+--		else
+--			ESX.TriggerServerCallback('esx_pharmasistjob:buyWeapon', function(bought)
+--				if bought then
+--					if data.current.price > 0 then
+--						ESX.ShowNotification(TranslateCap('armory_bought', data.current.componentLabel, ESX.Math.GroupDigits(data.current.price)))
+--					end
+--
+--					menu.close()
+--					parentShop.close()
+--					OpenBuyWeaponsMenu()
+--				else
+--					ESX.ShowNotification(TranslateCap('armory_money'))
+--				end
+--			end, weaponName, 2, data.current.componentNum)
+--		end
+--	end)
+--end
 
 function OpenGetStocksMenu()
 	ESX.TriggerServerCallback('esx_pharmasistjob:getStockItems', function(items)
@@ -953,10 +950,10 @@ AddEventHandler('esx_pharmasistjob:hasEnteredMarker', function(station, part, pa
 		CurrentAction     = 'menu_vehicle_spawner'
 		CurrentActionMsg  = TranslateCap('garage_prompt')
 		CurrentActionData = {station = station, part = part, partNum = partNum}
-	elseif part == 'Helicopters' then
-		CurrentAction     = 'Helicopters'
-		CurrentActionMsg  = TranslateCap('helicopter_prompt')
-		CurrentActionData = {station = station, part = part, partNum = partNum}
+--	elseif part == 'Helicopters' then
+--		CurrentAction     = 'Helicopters'
+--		CurrentActionMsg  = TranslateCap('helicopter_prompt')
+--		CurrentActionData = {station = station, part = part, partNum = partNum}
 	elseif part == 'BossActions' then
 		CurrentAction     = 'menu_boss_actions'
 		CurrentActionMsg  = TranslateCap('open_bossmenu')
@@ -1001,203 +998,203 @@ AddEventHandler('esx_pharmasistjob:hasExitedEntityZone', function(entity)
 	end
 end)
 
-RegisterNetEvent('esx_pharmasistjob:handcuff')
-AddEventHandler('esx_pharmasistjob:handcuff', function()
-	isHandcuffed = not isHandcuffed
-	local playerPed = PlayerPedId()
+--RegisterNetEvent('esx_pharmasistjob:handcuff')
+--AddEventHandler('esx_pharmasistjob:handcuff', function()
+--	isHandcuffed = not isHandcuffed
+--	local playerPed = PlayerPedId()
+--
+--	if isHandcuffed then
+--		RequestAnimDict('mp_arresting')
+--		while not HasAnimDictLoaded('mp_arresting') do
+--			Wait(100)
+--		end
+--
+--		TaskPlayAnim(playerPed, 'mp_arresting', 'idle', 8.0, -8, -1, 49, 0, 0, 0, 0)
+--		RemoveAnimDict('mp_arresting')
+--
+--		SetEnableHandcuffs(playerPed, true)
+--		DisablePlayerFiring(playerPed, true)
+--		SetCurrentPedWeapon(playerPed, `WEAPON_UNARMED`, true) -- unarm player
+--		SetPedCanPlayGestureAnims(playerPed, false)
+--		FreezeEntityPosition(playerPed, true)
+--		DisplayRadar(false)
+--
+--		if Config.EnableHandcuffTimer then
+--			if handcuffTimer.active then
+--				ESX.ClearTimeout(handcuffTimer.task)
+--			end
+--
+----			StartHandcuffTimer()
+--		end
+--	else
+--		if Config.EnableHandcuffTimer and handcuffTimer.active then
+--			ESX.ClearTimeout(handcuffTimer.task)
+--		end
+--
+--		ClearPedSecondaryTask(playerPed)
+--		SetEnableHandcuffs(playerPed, false)
+--		DisablePlayerFiring(playerPed, false)
+--		SetPedCanPlayGestureAnims(playerPed, true)
+--		FreezeEntityPosition(playerPed, false)
+--		DisplayRadar(true)
+--	end
+--end)
 
-	if isHandcuffed then
-		RequestAnimDict('mp_arresting')
-		while not HasAnimDictLoaded('mp_arresting') do
-			Wait(100)
-		end
-
-		TaskPlayAnim(playerPed, 'mp_arresting', 'idle', 8.0, -8, -1, 49, 0, 0, 0, 0)
-		RemoveAnimDict('mp_arresting')
-
-		SetEnableHandcuffs(playerPed, true)
-		DisablePlayerFiring(playerPed, true)
-		SetCurrentPedWeapon(playerPed, `WEAPON_UNARMED`, true) -- unarm player
-		SetPedCanPlayGestureAnims(playerPed, false)
-		FreezeEntityPosition(playerPed, true)
-		DisplayRadar(false)
-
-		if Config.EnableHandcuffTimer then
-			if handcuffTimer.active then
-				ESX.ClearTimeout(handcuffTimer.task)
-			end
-
-			StartHandcuffTimer()
-		end
-	else
-		if Config.EnableHandcuffTimer and handcuffTimer.active then
-			ESX.ClearTimeout(handcuffTimer.task)
-		end
-
-		ClearPedSecondaryTask(playerPed)
-		SetEnableHandcuffs(playerPed, false)
-		DisablePlayerFiring(playerPed, false)
-		SetPedCanPlayGestureAnims(playerPed, true)
-		FreezeEntityPosition(playerPed, false)
-		DisplayRadar(true)
-	end
-end)
-
-RegisterNetEvent('esx_pharmasistjob:unrestrain')
-AddEventHandler('esx_pharmasistjob:unrestrain', function()
-	if isHandcuffed then
-		local playerPed = PlayerPedId()
-		isHandcuffed = false
-
-		ClearPedSecondaryTask(playerPed)
-		SetEnableHandcuffs(playerPed, false)
-		DisablePlayerFiring(playerPed, false)
-		SetPedCanPlayGestureAnims(playerPed, true)
-		FreezeEntityPosition(playerPed, false)
-		DisplayRadar(true)
+--RegisterNetEvent('esx_pharmasistjob:unrestrain')
+--AddEventHandler('esx_pharmasistjob:unrestrain', function()
+--	if isHandcuffed then
+--		local playerPed = PlayerPedId()
+--		isHandcuffed = false
+--
+--		ClearPedSecondaryTask(playerPed)
+--		SetEnableHandcuffs(playerPed, false)
+--		DisablePlayerFiring(playerPed, false)
+--		SetPedCanPlayGestureAnims(playerPed, true)
+--		FreezeEntityPosition(playerPed, false)
+--		DisplayRadar(true)
 
 		-- end timer
-		if Config.EnableHandcuffTimer and handcuffTimer.active then
-			ESX.ClearTimeout(handcuffTimer.task)
-		end
-	end
-end)
+--		if Config.EnableHandcuffTimer and handcuffTimer.active then
+--			ESX.ClearTimeout(handcuffTimer.task)
+--		end
+--	end
+--end)
 
-RegisterNetEvent('esx_pharmasistjob:drag')
-AddEventHandler('esx_pharmasistjob:drag', function(copId)
-	if isHandcuffed then
-		dragStatus.isDragged = not dragStatus.isDragged
-		dragStatus.CopId = copId
-	end
-end)
+--RegisterNetEvent('esx_pharmasistjob:drag')
+--AddEventHandler('esx_pharmasistjob:drag', function(copId)
+--	if isHandcuffed then
+--		dragStatus.isDragged = not dragStatus.isDragged
+--		dragStatus.CopId = copId
+--	end
+--end)
 
-CreateThread(function()
-	local wasDragged
+--CreateThread(function()
+--	local wasDragged
+--
+--	while true do
+--		local Sleep = 1500
+--
+--		if isHandcuffed and dragStatus.isDragged then
+--			Sleep = 50
+--			local targetPed = GetPlayerPed(GetPlayerFromServerId(dragStatus.CopId))
+--
+--			if DoesEntityExist(targetPed) and IsPedOnFoot(targetPed) and not IsPedDeadOrDying(targetPed, true) then
+--				if not wasDragged then
+--					AttachEntityToEntity(ESX.PlayerData.ped, targetPed, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
+--					wasDragged = true
+--				else
+--					Wait(1000)
+--				end
+--			else
+--				wasDragged = false
+--				dragStatus.isDragged = false
+--				DetachEntity(ESX.PlayerData.ped, true, false)
+--			end
+--		elseif wasDragged then
+--			wasDragged = false
+--			DetachEntity(ESX.PlayerData.ped, true, false)
+--		end
+--	Wait(Sleep)
+--	end
+--end)
 
-	while true do
-		local Sleep = 1500
+--RegisterNetEvent('esx_pharmasistjob:putInVehicle')
+--AddEventHandler('esx_pharmasistjob:putInVehicle', function()
+--	if isHandcuffed then
+--		local playerPed = PlayerPedId()
+--		local vehicle, distance = ESX.Game.GetClosestVehicle()
+--
+--		if vehicle and distance < 5 then
+--			local maxSeats, freeSeat = GetVehicleMaxNumberOfPassengers(vehicle)
+--
+--			for i=maxSeats - 1, 0, -1 do
+--				if IsVehicleSeatFree(vehicle, i) then
+--					freeSeat = i
+--					break
+--				end
+--			end
+--
+--			if freeSeat then
+--				TaskWarpPedIntoVehicle(playerPed, vehicle, freeSeat)
+--				dragStatus.isDragged = false
+--			end
+--		end
+--	end
+--end)
 
-		if isHandcuffed and dragStatus.isDragged then
-			Sleep = 50
-			local targetPed = GetPlayerPed(GetPlayerFromServerId(dragStatus.CopId))
-
-			if DoesEntityExist(targetPed) and IsPedOnFoot(targetPed) and not IsPedDeadOrDying(targetPed, true) then
-				if not wasDragged then
-					AttachEntityToEntity(ESX.PlayerData.ped, targetPed, 11816, 0.54, 0.54, 0.0, 0.0, 0.0, 0.0, false, false, false, false, 2, true)
-					wasDragged = true
-				else
-					Wait(1000)
-				end
-			else
-				wasDragged = false
-				dragStatus.isDragged = false
-				DetachEntity(ESX.PlayerData.ped, true, false)
-			end
-		elseif wasDragged then
-			wasDragged = false
-			DetachEntity(ESX.PlayerData.ped, true, false)
-		end
-	Wait(Sleep)
-	end
-end)
-
-RegisterNetEvent('esx_pharmasistjob:putInVehicle')
-AddEventHandler('esx_pharmasistjob:putInVehicle', function()
-	if isHandcuffed then
-		local playerPed = PlayerPedId()
-		local vehicle, distance = ESX.Game.GetClosestVehicle()
-
-		if vehicle and distance < 5 then
-			local maxSeats, freeSeat = GetVehicleMaxNumberOfPassengers(vehicle)
-
-			for i=maxSeats - 1, 0, -1 do
-				if IsVehicleSeatFree(vehicle, i) then
-					freeSeat = i
-					break
-				end
-			end
-
-			if freeSeat then
-				TaskWarpPedIntoVehicle(playerPed, vehicle, freeSeat)
-				dragStatus.isDragged = false
-			end
-		end
-	end
-end)
-
-RegisterNetEvent('esx_pharmasistjob:OutVehicle')
-AddEventHandler('esx_pharmasistjob:OutVehicle', function()
-	local GetVehiclePedIsIn = GetVehiclePedIsIn
-	local IsPedSittingInAnyVehicle = IsPedSittingInAnyVehicle
-	local TaskLeaveVehicle = TaskLeaveVehicle
-	if IsPedSittingInAnyVehicle(ESX.PlayerData.ped) then
-		local vehicle = GetVehiclePedIsIn(ESX.PlayerData.ped, false)
-		TaskLeaveVehicle(ESX.PlayerData.ped, vehicle, 64)
-	end
-end)
+--RegisterNetEvent('esx_pharmasistjob:OutVehicle')
+--AddEventHandler('esx_pharmasistjob:OutVehicle', function()
+--	local GetVehiclePedIsIn = GetVehiclePedIsIn
+--	local IsPedSittingInAnyVehicle = IsPedSittingInAnyVehicle
+--	local TaskLeaveVehicle = TaskLeaveVehicle
+--	if IsPedSittingInAnyVehicle(ESX.PlayerData.ped) then
+--		local vehicle = GetVehiclePedIsIn(ESX.PlayerData.ped, false)
+--		TaskLeaveVehicle(ESX.PlayerData.ped, vehicle, 64)
+--	end
+--end)
 
 -- Handcuff
-CreateThread(function()
-	local DisableControlAction = DisableControlAction
-	local IsEntityPlayingAnim = IsEntityPlayingAnim
-	while true do
-		local Sleep = 1000
-
-		if isHandcuffed then
-			Sleep = 0
-			DisableControlAction(0, 1, true) -- Disable pan
-			DisableControlAction(0, 2, true) -- Disable tilt
-			DisableControlAction(0, 24, true) -- Attack
-			DisableControlAction(0, 257, true) -- Attack 2
-			DisableControlAction(0, 25, true) -- Aim
-			DisableControlAction(0, 263, true) -- Melee Attack 1
-			DisableControlAction(0, 32, true) -- W
-			DisableControlAction(0, 34, true) -- A
-			DisableControlAction(0, 31, true) -- S
-			DisableControlAction(0, 30, true) -- D
-
-			DisableControlAction(0, 45, true) -- Reload
-			DisableControlAction(0, 22, true) -- Jump
-			DisableControlAction(0, 44, true) -- Cover
-			DisableControlAction(0, 37, true) -- Select Weapon
-			DisableControlAction(0, 23, true) -- Also 'enter'?
-
-			DisableControlAction(0, 288,  true) -- Disable phone
-			DisableControlAction(0, 289, true) -- Inventory
-			DisableControlAction(0, 170, true) -- Animations
-			DisableControlAction(0, 167, true) -- Job
-
-			DisableControlAction(0, 0, true) -- Disable changing view
-			DisableControlAction(0, 26, true) -- Disable looking behind
-			DisableControlAction(0, 73, true) -- Disable clearing animation
-			DisableControlAction(2, 199, true) -- Disable pause screen
-
-			DisableControlAction(0, 59, true) -- Disable steering in vehicle
-			DisableControlAction(0, 71, true) -- Disable driving forward in vehicle
-			DisableControlAction(0, 72, true) -- Disable reversing in vehicle
-
-			DisableControlAction(2, 36, true) -- Disable going stealth
-
-			DisableControlAction(0, 47, true)  -- Disable weapon
-			DisableControlAction(0, 264, true) -- Disable melee
-			DisableControlAction(0, 257, true) -- Disable melee
-			DisableControlAction(0, 140, true) -- Disable melee
-			DisableControlAction(0, 141, true) -- Disable melee
-			DisableControlAction(0, 142, true) -- Disable melee
-			DisableControlAction(0, 143, true) -- Disable melee
-			DisableControlAction(0, 75, true)  -- Disable exit vehicle
-			DisableControlAction(27, 75, true) -- Disable exit vehicle
-
-			if IsEntityPlayingAnim(ESX.PlayerData.ped, 'mp_arresting', 'idle', 3) ~= 1 then
-				ESX.Streaming.RequestAnimDict('mp_arresting', function()
-					TaskPlayAnim(ESX.PlayerData.ped, 'mp_arresting', 'idle', 8.0, -8, -1, 49, 0.0, false, false, false)
-					RemoveAnimDict('mp_arresting')
-				end)
-			end
-		end
-	Wait(Sleep)
-	end
-end)
+--CreateThread(function()
+--	local DisableControlAction = DisableControlAction
+--	local IsEntityPlayingAnim = IsEntityPlayingAnim
+--	while true do
+--		local Sleep = 1000
+--
+--		if isHandcuffed then
+--			Sleep = 0
+--			DisableControlAction(0, 1, true) -- Disable pan
+--			DisableControlAction(0, 2, true) -- Disable tilt
+--			DisableControlAction(0, 24, true) -- Attack
+--			DisableControlAction(0, 257, true) -- Attack 2
+--			DisableControlAction(0, 25, true) -- Aim
+--			DisableControlAction(0, 263, true) -- Melee Attack 1
+--			DisableControlAction(0, 32, true) -- W
+--			DisableControlAction(0, 34, true) -- A
+--			DisableControlAction(0, 31, true) -- S
+--			DisableControlAction(0, 30, true) -- D
+--
+--			DisableControlAction(0, 45, true) -- Reload
+--			DisableControlAction(0, 22, true) -- Jump
+--			DisableControlAction(0, 44, true) -- Cover
+--			DisableControlAction(0, 37, true) -- Select Weapon
+--			DisableControlAction(0, 23, true) -- Also 'enter'?
+--
+--			DisableControlAction(0, 288,  true) -- Disable phone
+--			DisableControlAction(0, 289, true) -- Inventory
+--			DisableControlAction(0, 170, true) -- Animations
+--			DisableControlAction(0, 167, true) -- Job
+--
+--			DisableControlAction(0, 0, true) -- Disable changing view
+--			DisableControlAction(0, 26, true) -- Disable looking behind
+--			DisableControlAction(0, 73, true) -- Disable clearing animation
+--			DisableControlAction(2, 199, true) -- Disable pause screen
+--
+--			DisableControlAction(0, 59, true) -- Disable steering in vehicle
+--			DisableControlAction(0, 71, true) -- Disable driving forward in vehicle
+--			DisableControlAction(0, 72, true) -- Disable reversing in vehicle
+--
+--			DisableControlAction(2, 36, true) -- Disable going stealth
+--
+--			DisableControlAction(0, 47, true)  -- Disable weapon
+--			DisableControlAction(0, 264, true) -- Disable melee
+--			DisableControlAction(0, 257, true) -- Disable melee
+--			DisableControlAction(0, 140, true) -- Disable melee
+--			DisableControlAction(0, 141, true) -- Disable melee
+--			DisableControlAction(0, 142, true) -- Disable melee
+--			DisableControlAction(0, 143, true) -- Disable melee
+--			DisableControlAction(0, 75, true)  -- Disable exit vehicle
+--			DisableControlAction(27, 75, true) -- Disable exit vehicle
+--
+--			if IsEntityPlayingAnim(ESX.PlayerData.ped, 'mp_arresting', 'idle', 3) ~= 1 then
+--				ESX.Streaming.RequestAnimDict('mp_arresting', function()
+--					TaskPlayAnim(ESX.PlayerData.ped, 'mp_arresting', 'idle', 8.0, -8, -1, 49, 0.0, false, false, false)
+--					RemoveAnimDict('mp_arresting')
+--				end)
+--			end
+--		end
+--	Wait(Sleep)
+--	end
+--end)
 
 -- Create blips
 CreateThread(function()
@@ -1325,11 +1322,11 @@ end)
 -- Enter / Exit entity zone events
 CreateThread(function()
 	local trackedEntities = {
-		`prop_roadcone02a`,
+		--`prop_roadcone02a`,
 		`prop_barrier_work05`,
-		`p_ld_stinger_s`,
+		--`p_ld_stinger_s`,
 		`prop_boxpile_07d`,
-		`hei_prop_cash_crate_half_full`
+		--`hei_prop_cash_crate_half_full`
 	}
 
 	while true do
@@ -1381,7 +1378,7 @@ ESX.RegisterInput("pharmasist:interact", "(ESX pharmasistJob) Interact", "keyboa
 	if not ESX.PlayerData.job or (ESX.PlayerData.job and not ESX.PlayerData.job.name == 'pharmasist') then
 		return
 	end
-	if CurrentAction == 'menu_cloakroom' then
+	--if CurrentAction == 'menu_cloakroom' then
 		OpenCloakroomMenu()
 	elseif CurrentAction == 'menu_armory' then
 		if not Config.EnableESXService then
@@ -1399,7 +1396,7 @@ ESX.RegisterInput("pharmasist:interact", "(ESX pharmasistJob) Interact", "keyboa
 		else
 			ESX.ShowNotification(TranslateCap('service_not'))
 		end
-	elseif CurrentAction == 'Helicopters' then
+	--elseif CurrentAction == 'Helicopters' then
 		if not Config.EnableESXService then
 			OpenVehicleSpawnerMenu('helicopter', CurrentActionData.station, CurrentActionData.part, CurrentActionData.partNum)
 		elseif playerInService then
@@ -1535,29 +1532,29 @@ AddEventHandler('onResourceStop', function(resource)
 end)
 
 -- handcuff timer, unrestrain the player after an certain amount of time
-function StartHandcuffTimer()
-	if Config.EnableHandcuffTimer and handcuffTimer.active then
-		ESX.ClearTimeout(handcuffTimer.task)
-	end
-
-	handcuffTimer.active = true
-
-	handcuffTimer.task = ESX.SetTimeout(Config.HandcuffTimer, function()
-		ESX.ShowNotification(TranslateCap('unrestrained_timer'))
-		TriggerEvent('esx_pharmasistjob:unrestrain')
-		handcuffTimer.active = false
-	end)
-end
+--function StartHandcuffTimer()
+--	if Config.EnableHandcuffTimer and handcuffTimer.active then
+--		ESX.ClearTimeout(handcuffTimer.task)
+--	end
+--
+--	handcuffTimer.active = true
+--
+--	handcuffTimer.task = ESX.SetTimeout(Config.HandcuffTimer, function()
+--		ESX.ShowNotification(TranslateCap('unrestrained_timer'))
+--		TriggerEvent('esx_pharmasistjob:unrestrain')
+--		handcuffTimer.active = false
+--	end)
+--end
 
 -- TODO
 --   - return to garage if owned
 --   - message owner that his vehicle has been impounded
-function ImpoundVehicle(vehicle)
-	--local vehicleName = GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle)))
-	ESX.Game.DeleteVehicle(vehicle)
-	ESX.ShowNotification(TranslateCap('impound_successful'))
-	currentTask.busy = false
-end
+--function ImpoundVehicle(vehicle)
+--	--local vehicleName = GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(vehicle)))
+--	ESX.Game.DeleteVehicle(vehicle)
+--	ESX.ShowNotification(TranslateCap('impound_successful'))
+--	currentTask.busy = false
+--end
 
 if ESX.PlayerLoaded and ESX.PlayerData.job == 'pharmasist' then
 	SetTimeout(1000, function()
