@@ -150,22 +150,22 @@ Config.AuthorizedWeapons = {
 		boss = {}
 	},
 
-	helicopter = {
-		recruit = {},
-
-		supplier = {},
-
-		store_employe  = {},
-
-		lab_employe = {
-			{model = 'polmav', props = {modLivery = 0}, price = 200000}
-		},
-
-		boss = {
-			{model = 'polmav', props = {modLivery = 0}, price = 100000}
-		}
-	}
-}
+--	helicopter = {
+--		recruit = {},
+--
+--		supplier = {},
+--
+--		store_employe  = {},
+--
+--		lab_employe = {
+--			{model = 'polmav', props = {modLivery = 0}, price = 200000}
+--		},
+--
+--		boss = {
+--			{model = 'polmav', props = {modLivery = 0}, price = 100000}
+--		}
+--	}
+--}
 
 --Config.CustomPeds = {
 	--shared = {
