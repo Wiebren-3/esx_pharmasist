@@ -1,4 +1,4 @@
--- ESX_MEDICINEITEM --
+-- ESX_TOURNIQUET --
 RegisterNetEvent('esx:useItem')
 AddEventHandler('esx:useItem', function(itemName)
 TriggerClientEvent("esx_animations:playEmote", source, "mechanic3")
