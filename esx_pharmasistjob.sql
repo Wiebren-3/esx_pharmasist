@@ -38,4 +38,5 @@ INSERT INTO `fine_types` (label, amount, category) VALUES
 	('Pijnstiller 1x',3000,0),
 	('Tourniquet 1x',4500,0),
 	('Verbandrol 1x',2500,0),
-	('Viteminedrinken 1x',500,0),
+	('Defibrilator 1x',15000,0),
+	('Vitaminedrinken 1x', 300,0)
