@@ -9,3 +9,8 @@ Functions such as:
 - Shed storage (ESX_ARMORY)
 - F6 --> Search function.
 - F6 --> Object spawner
+
+Used resources:
+- esx_shop
+- esx_animations
+- esx_doorlock
