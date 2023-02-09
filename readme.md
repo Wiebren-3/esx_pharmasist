@@ -1,1 +1,11 @@
-Dit is een bestand voor in FiveM voor een apotheek baan, hier komt later nog een MLO + een missie om medicijnen te krijgen bij.
+ESX_PHARMASISTJOB 
+ES_EXTENED
+
+Functions such as:
+- Mission to get medicines
+- Store  (ESX_SHOP/ESX_DOORLOCK)
+- Store MLO 
+- Shed MLO
+- Shed storage (ESX_ARMORY)
+- F6 --> Search function.
+- F6 --> Object spawner
