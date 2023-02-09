@@ -1,8 +1,8 @@
 --ESX_BANDAGE--
 local usingBandage = false
 
-RegisterNetEvent('esx_pharmasistjob:bandage')
-AddEventHandler('esx_pharmasistjob:bandage', function(source)
+RegisterNetEvent('esx_pharmasistjob:items:bandage')
+AddEventHandler('esx_pharmasistjob:items:bandage', function(source)
 	local playerPed = GetPlayerPed(-1)
 	local health = GetEntityHealth(playerPed)
 	local maxHealth = GetEntityMaxHealth(playerPed)
