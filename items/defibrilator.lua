@@ -1,8 +1,8 @@
 -- ESX_DEFIBRILATOR --
 local usingDefib = false
 
-RegisterNetEvent('esx_extraitems:defib')
-AddEventHandler('esx_extraitems:defib', function(source)
+RegisterNetEvent('esx_pharmasistjob:items:defibrilator')
+AddEventHandler('esx_extraitems:items:defibrilator', function(source)
 	local playerPed = GetPlayerPed(-1)
 
 	if IsPedSittingInAnyVehicle(playerPed) then
