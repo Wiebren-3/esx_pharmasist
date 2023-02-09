@@ -1,6 +1,7 @@
 RegisterNetEvent('esx:useItem')
 AddEventHandler('esx:useItem', function(itemName)
 TriggerClientEvent("esx_animations:playEmote", source, "drink")
+TriggerClientEvent("esx_animations:stopEmote", nil")
 	TriggerClientEvent("esx:showNotification", source, "Je nam een pijnstiller, en voelt je langzamerhand steeds beter.")
         local xPlayer = ESX.GetPlayerFromId(source)
        		local playerPed = xPlayer.playerPed
