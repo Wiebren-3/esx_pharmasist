@@ -2,7 +2,7 @@
 local usingDefib = false
 
 RegisterNetEvent('esx_pharmasistjob:items:defibrilator')
-AddEventHandler('esx_extraitems:items:defibrilator', function(source)
+AddEventHandler('esx_pharmasist:items:defibrilator', function(source)
 	local playerPed = GetPlayerPed(-1)
 
 	if IsPedSittingInAnyVehicle(playerPed) then
